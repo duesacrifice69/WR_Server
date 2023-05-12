@@ -16,9 +16,9 @@ export const getUser = async (userName) => {
         userName: result.UserName,
         password: result.Password,
         employeeNo: result.EmployeeNo,
+        UserRoleId: result.UserRoleId,
       };
     });
-    console.log(users[0]);
 
     return users[0];
   } catch (error) {
