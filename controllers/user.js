@@ -5,11 +5,14 @@ import { getUser } from "../services/userCredentials.js";
 import { userValidator } from "../services/UserValidator.js";
 import { getMenuItems } from "../services/menuItems.js";
 import logger from "../logger.js";
+import UserService from "../services/UserService.js";
+import CompanyService from "../services/CompanyService.js";
 
 export const signin = async (req, res) => {
   const { userName, password } = req.body;
   try {
     const existingUser = await getUser(userName);
+    //  const user = await UserService.getUserByName(userName);
     if (!existingUser)
       return res
         .status(401)

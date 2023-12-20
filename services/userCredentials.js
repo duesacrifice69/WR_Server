@@ -1,10 +1,11 @@
 import config from "../dbconfig.js";
 import sql from "mssql";
+import Sequelize from "../sequelize.js";
 
 export const getUser = async (userName) => {
   try {
     const pool = await sql.connect(config);
-    //console.log("connected", pool.size);
+
     const userList = await pool
       .request()
       .input("UserName", sql.VarChar, userName)
