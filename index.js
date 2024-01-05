@@ -3,6 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
+import morgan from "morgan";
 import userRoute from "./routes/user.js";
 import companyRoute from "./routes/Company.js";
 import dashboardRoute from "./routes/DashboardRoute.js";
@@ -13,6 +14,7 @@ dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+app.use(morgan("common"));
 
 app.use("/user", userRoute);
 app.use("/company", companyRoute);

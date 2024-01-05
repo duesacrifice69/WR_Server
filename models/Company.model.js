@@ -58,12 +58,13 @@ Company.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    createdAt: true,
-    updatedAt: true,
+    createdAt: { type: DataTypes.DATE, field: "DateRegistered" },
+    updatedAt: { type: DataTypes.DATE, field: "DateUpdated" },
   },
   {
     sequelize,
     modelName: "Company",
+    timestamps: true,
   }
 );
 

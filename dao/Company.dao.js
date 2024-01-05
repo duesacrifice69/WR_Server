@@ -6,6 +6,7 @@ class CompanyDao {
       const company = await Company.create(CompanyData);
       return company;
     } catch (error) {
+      console.log(error);
       throw new Error("Failed to create user");
     }
   }
@@ -16,7 +17,7 @@ class CompanyDao {
       if (!company) {
         throw new Error("Company not found");
       }
-      await company.update(userData);
+      await company.update(CompanyData);
       return company;
     } catch (error) {
       throw new Error("Failed to update user");
@@ -25,6 +26,7 @@ class CompanyDao {
 
   static async deleteCompany(companyId) {
     try {
+      console.log(companyId);
       const company = await Company.findByPk(companyId);
       if (!company) {
         throw new Error("Company not found");
@@ -32,6 +34,7 @@ class CompanyDao {
       await company.destroy();
       return true;
     } catch (error) {
+      console.log(error);
       throw new Error("Failed to delete user");
     }
   }
